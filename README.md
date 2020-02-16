@@ -1,12 +1,12 @@
 Start Chart
 ==============
 
-Start Chart is a simple charting package for start web framework.
+Start Chart is a simple charting package for web framework.
 There are good charting packages for Flutter mobile UI framework such as google charts.
-But, it lacks simple architecture for intuitive programmers.
+But, it lacks simple architecture for web framework.
 Also, it lacks candle charts with technical indicators.
 
-Thus, I've made start chart packages supporting candle charts.
+Thus, I've made charting packages supporting web framework and candle charts.
 
 
 Example usage
