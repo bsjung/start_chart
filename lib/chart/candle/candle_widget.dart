@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../entity/info_window_entity.dart';
-import '../entity/candle_entity.dart';
-import '../renderer/candle/candle_renderer.dart';
 import '../utils/date_format_util.dart';
-import 'candle_style.dart';
+import './entity/info_window_entity.dart';
+import './entity/candle_entity.dart';
+import './renderer/candle_renderer.dart';
+import './candle_style.dart';
 
 enum MainState { MA, BOLL, NONE }
 enum SecondaryState { MACD, KDJ, RSI, WR, NONE }

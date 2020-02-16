@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../entity/ohlc_entity.dart';
-import '../../candle/candle_widget.dart' show MainState;
+import '../entity/ohlc_entity.dart';
+import '../candle_widget.dart' show MainState;
 import 'base_chart_renderer.dart';
 
 class MainRenderer extends BaseChartRenderer<OHLCEntity> {

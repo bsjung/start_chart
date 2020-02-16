@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import '../utils/number_util.dart';
-import '../entity/candle_entity.dart';
+import '../candle/entity/candle_entity.dart';
 
 class DataUtil {
   static calculate(List<KLineEntity> dataList,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-export '../../candle/candle_style.dart';
+export '../candle_style.dart';
 
 abstract class BaseChartRenderer<T> {
   double maxValue, minValue;

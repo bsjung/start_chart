@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import '../../entity/macd_entity.dart';
-import '../../candle/candle_widget.dart' show SecondaryState;
+import '../entity/macd_entity.dart';
+import '../candle_widget.dart' show SecondaryState;
 
 import 'base_chart_renderer.dart';
 
