@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class LineChart extends StatelessWidget {
   LineChart({
     @required this.data,
-    this.size = Size(150, 150),
+    this.size = const Size(150, 150),
   }) : assert(data != null);
 
   final List data;

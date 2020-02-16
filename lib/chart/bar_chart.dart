@@ -7,7 +7,7 @@ class BarChart extends StatelessWidget {
     @required this.data,
     @required this.labels,
     this.color = Colors.blue,
-    this.size = Size(150, 150),
+    this.size = const Size(150, 150),
   }) : assert(data != null);
 
   final List<double> data;

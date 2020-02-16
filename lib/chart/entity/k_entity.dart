@@ -1,0 +1,15 @@
+import 'ohlc_entity.dart';
+import 'kdj_entity.dart';
+import 'macd_entity.dart';
+import 'rsi_entity.dart';
+import 'rw_entity.dart';
+import 'volume_entity.dart';
+
+class KEntity
+    with
+        OHLCEntity,
+        VolumeEntity,
+        KDJEntity,
+        RSIEntity,
+        WREntity,
+        MACDEntity {}

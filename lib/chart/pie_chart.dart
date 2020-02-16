@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class PieChart extends StatelessWidget {
   PieChart({
-    @required this.percentage
-    this.size = Size(150, 150),
+    @required this.percentage,
+    this.size = const Size(150, 150),
   }) : assert(percentage != null);
 
   final int percentage;
