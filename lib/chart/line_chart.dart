@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class LineChart extends StatelessWidget {
   LineChart({
-    @required this.data
+    @required this.data,
+    this.size = Size(150, 150),
   }) : assert(data != null);
 
   final List data;
@@ -13,7 +14,7 @@ class LineChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
-        size: Size(150, 150),
+        size: size,
         painter: new LineChartPainter(
            points: data,
            pointSize: 5.0, 
@@ -87,8 +88,8 @@ class LineChartPainter extends CustomPainter {
 
     for (int index = 0; index < points.length; index++) {
       double x = spacing * index;
-      double normalizedY = points[index] / maxY; // 정규화한다. 정규화란 [0 ~ 1] 사이가 나오게 값을 변경하는 것.
-      double y = getYPos(h, bottomPadding, normalizedY); // 높이에 비례한 Y 값을 구한다.
+      double normalizedY = points[index] / maxY; // Normalize
+      double y = getYPos(h, bottomPadding, normalizedY); 
 
       Offset coord = Offset(x, y);
       coordinates.add(coord);

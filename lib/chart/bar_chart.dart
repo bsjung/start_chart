@@ -7,17 +7,19 @@ class BarChart extends StatelessWidget {
     @required this.data,
     @required this.labels,
     this.color = Colors.blue,
+    this.size = Size(150, 150),
   }) : assert(data != null);
 
   final List<double> data;
   final List<String> labels;
   final Color color;
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
-        size: Size(150, 150),
+        size: size,
         painter: new BarChartPainter(
            data: data, labels: labels, color : color),
       ), // CustomPaint

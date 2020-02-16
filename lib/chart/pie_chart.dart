@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class PieChart extends StatelessWidget {
   PieChart({
     @required this.percentage
+    this.size = Size(150, 150),
   }) : assert(percentage != null);
 
   final int percentage;
@@ -11,7 +12,7 @@ class PieChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
-        size: Size(150, 150),
+        size: size,
         painter: new PieChartPainter(
            percentage: percentage,
            textScaleFactor: 1.5,
