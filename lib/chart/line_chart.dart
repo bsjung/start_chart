@@ -9,13 +9,14 @@ class LineChart extends StatelessWidget {
   }) : assert(data != null);
 
   final List data;
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
         size: size,
-        painter: new LineChartPainter(
+        painter: new _LineChartPainter(
            points: data,
            pointSize: 5.0, 
            pointColor: Colors.pinkAccent, 
@@ -26,7 +27,7 @@ class LineChart extends StatelessWidget {
   }
 }
 
-class LineChartPainter extends CustomPainter {
+class _LineChartPainter extends CustomPainter {
   List<double> points;
   double lineWidth;
   double pointSize;
@@ -36,7 +37,7 @@ class LineChartPainter extends CustomPainter {
   int minValueIndex;
   double fontSize = 18.0;
 
-  LineChartPainter({this.points, this.pointSize, this.lineWidth, this.lineColor, this.pointColor});
+  _LineChartPainter({this.points, this.pointSize, this.lineWidth, this.lineColor, this.pointColor});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -138,7 +139,7 @@ class LineChartPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(LineChartPainter oldDelegate) {
+  bool shouldRepaint(_LineChartPainter oldDelegate) {
     return oldDelegate.points != points;
   }
 }

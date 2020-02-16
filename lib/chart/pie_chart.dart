@@ -8,12 +8,14 @@ class PieChart extends StatelessWidget {
   }) : assert(percentage != null);
 
   final int percentage;
+  final Size size;
+
   @override
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
         size: size,
-        painter: new PieChartPainter(
+        painter: new _PieChartPainter(
            percentage: percentage,
            textScaleFactor: 1.5,
            textColor: Colors.blueGrey
@@ -24,14 +26,14 @@ class PieChart extends StatelessWidget {
 }
 
 
-class PieChartPainter extends CustomPainter {
+class _PieChartPainter extends CustomPainter {
 
   int percentage = 0;
   double textScaleFactor = 1.0;
   Color textColor;
 
 
-  PieChartPainter({this.percentage, this.textScaleFactor, this.textColor});
+  _PieChartPainter({this.percentage, this.textScaleFactor, this.textColor});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -75,7 +77,7 @@ class PieChartPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(PieChartPainter old) {
+  bool shouldRepaint(_PieChartPainter old) {
     return old.percentage != percentage;
   }
 }

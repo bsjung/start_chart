@@ -20,14 +20,14 @@ class BarChart extends StatelessWidget {
     return new LimitedBox(
       child: new CustomPaint(
         size: size,
-        painter: new BarChartPainter(
+        painter: new _BarChartPainter(
            data: data, labels: labels, color : color),
       ), // CustomPaint
     ); // LimitedBox
   }
 }
 
-class BarChartPainter extends CustomPainter {
+class _BarChartPainter extends CustomPainter {
   Color color;
   double textScaleFactorXAxis = 1.0;
   double textScaleFactorYAxis = 1.2;
@@ -37,7 +37,7 @@ class BarChartPainter extends CustomPainter {
   double bottomPadding = 0.0;
   double leftPadding = 0.0;
 
-  BarChartPainter({this.data, this.labels, this.color = Colors.blue});
+  _BarChartPainter({this.data, this.labels, this.color = Colors.blue});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -202,7 +202,7 @@ class BarChartPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(BarChartPainter old) {
+  bool shouldRepaint(_BarChartPainter old) {
     return old.data != data;
   }
 }
