@@ -6,10 +6,14 @@ class PieChart extends StatelessWidget {
   PieChart({
     @required this.percentage,
     this.size = const Size(150, 150),
+    this.textScaleFactor = 1.5,
+    this.textColor = Colors.blueGrey,
   }) : assert(percentage != null);
 
-  final int percentage;
   final Size size;
+  final int percentage;
+  final double textScaleFactor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +21,9 @@ class PieChart extends StatelessWidget {
       child: new CustomPaint(
         size: size,
         painter: new PieChartPainter(
-           percentage: percentage,
-           textScaleFactor: 1.5,
-           textColor: Colors.blueGrey
+           percentage: this.percentage,
+           textScaleFactor: this.textScaleFactor,
+           textColor: this.textColor
         ),
       ), // CustomPaint
     ); // LimitedBox

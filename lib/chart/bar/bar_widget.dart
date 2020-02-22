@@ -19,9 +19,9 @@ class BarChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return new LimitedBox(
       child: new CustomPaint(
-        size: size,
+        size: this.size,
         painter: new BarChartPainter(
-           data: data, labels: labels, color : color),
+           data: this.data, labels: this.labels, color : this.color),
       ), // CustomPaint
     ); // LimitedBox
   }
