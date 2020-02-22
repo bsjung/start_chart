@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show Color;
 
-class ChartColors {
-  ChartColors._();
+class CandleColors {
+  CandleColors._();
 
   static const Color kLineColor = Color(0xff4C86CD);
   static const Color lineFillColor = Color(0x554C86CD);

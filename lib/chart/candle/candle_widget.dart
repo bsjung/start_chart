@@ -268,9 +268,9 @@ class _CandleWidgetState extends State<CandleWidget>
                 top: 25),
             width: mWidth / 3,
             decoration: BoxDecoration(
-                color: ChartColors.selectFillColor,
+                color: CandleColors.selectFillColor,
                 border: Border.all(
-                    color: ChartColors.selectBorderColor, width: 0.5)),
+                    color: CandleColors.selectBorderColor, width: 0.5)),
             child: ListView.builder(
               padding: EdgeInsets.all(4),
               itemCount: infoNamesCN.length,

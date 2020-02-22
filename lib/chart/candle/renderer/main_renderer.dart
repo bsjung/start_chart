@@ -51,15 +51,15 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
           if (data.up != 0)
             TextSpan(
                 text: "BOLL:${format(data.mb)}    ",
-                style: getTextStyle(ChartColors.ma5Color)),
+                style: getTextStyle(CandleColors.ma5Color)),
           if (data.mb != 0)
             TextSpan(
                 text: "UB:${format(data.up)}    ",
-                style: getTextStyle(ChartColors.ma10Color)),
+                style: getTextStyle(CandleColors.ma10Color)),
           if (data.dn != 0)
             TextSpan(
                 text: "LB:${format(data.dn)}    ",
-                style: getTextStyle(ChartColors.ma30Color)),
+                style: getTextStyle(CandleColors.ma30Color)),
         ],
       );
     }
@@ -75,7 +75,7 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
       if (data.maValueList[i] != 0) {
         var item = TextSpan(
             text: "MA${maDayList[i]}:${format(data.maValueList[i])}    ",
-            style: getTextStyle(ChartColors.getMAColor(i)));
+            style: getTextStyle(CandleColors.getMAColor(i)));
         result.add(item);
       }
     }
@@ -103,7 +103,7 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
     ..isAntiAlias = true
     ..style = PaintingStyle.stroke
     ..strokeWidth = 1.0
-    ..color = ChartColors.kLineColor;
+    ..color = CandleColors.kLineColor;
   Paint mLineFillPaint = Paint()
     ..style = PaintingStyle.fill
     ..isAntiAlias = true;
@@ -111,7 +111,7 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
   //Draw a line chart
   drawPolyline(double lastPrice, double curPrice, Canvas canvas, double lastX,
       double curX) {
-//    drawLine(lastPrice + 100, curPrice + 100, canvas, lastX, curX, ChartColors.kLineColor);
+//    drawLine(lastPrice + 100, curPrice + 100, canvas, lastX, curX, CandleColors.kLineColor);
     mLinePath ??= Path();
 
 //    if (lastX == curX) {
@@ -131,7 +131,7 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       tileMode: TileMode.clamp,
-      colors: [ChartColors.lineFillColor, Colors.transparent],
+      colors: [CandleColors.lineFillColor, Colors.transparent],
     ).createShader(Rect.fromLTRB(
         chartRect.left, chartRect.top, chartRect.right, chartRect.bottom));
     mLineFillPaint..shader = mLineFillShader;
@@ -160,7 +160,7 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
       }
       if (lastPoint.maValueList[i] != 0) {
         drawLine(lastPoint.maValueList[i], curPoint.maValueList[i], canvas,
-            lastX, curX, ChartColors.getMAColor(i));
+            lastX, curX, CandleColors.getMAColor(i));
       }
     }
   }
@@ -169,15 +169,15 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
       Canvas canvas, double lastX, double curX) {
     if (lastPoint.up != 0) {
       drawLine(lastPoint.up, curPoint.up, canvas, lastX, curX,
-          ChartColors.ma10Color);
+          CandleColors.ma10Color);
     }
     if (lastPoint.mb != 0) {
       drawLine(
-          lastPoint.mb, curPoint.mb, canvas, lastX, curX, ChartColors.ma5Color);
+          lastPoint.mb, curPoint.mb, canvas, lastX, curX, CandleColors.ma5Color);
     }
     if (lastPoint.dn != 0) {
       drawLine(lastPoint.dn, curPoint.dn, canvas, lastX, curX,
-          ChartColors.ma30Color);
+          CandleColors.ma30Color);
     }
   }
 
@@ -189,19 +189,19 @@ class MainRenderer extends BaseChartRenderer<OHLCEntity> {
     double r = mCandleWidth / 2;
     double lineR = mCandleLineWidth / 2;
     if (open > close) {
-      chartPaint.color = ChartColors.upColor;
+      chartPaint.color = CandleColors.upColor;
       canvas.drawRect(
           Rect.fromLTRB(curX - r, close, curX + r, open), chartPaint);
       canvas.drawRect(
           Rect.fromLTRB(curX - lineR, high, curX + lineR, low), chartPaint);
     } else if (close > open) {
-      chartPaint.color = ChartColors.dnColor;
+      chartPaint.color = CandleColors.dnColor;
       canvas.drawRect(
           Rect.fromLTRB(curX - r, open, curX + r, close), chartPaint);
       canvas.drawRect(
           Rect.fromLTRB(curX - lineR, high, curX + lineR, low), chartPaint);
     } else {
-      chartPaint.color = ChartColors.upColor;
+      chartPaint.color = CandleColors.upColor;
       canvas.drawLine(
           Offset(curX - r, open), Offset(curX + r, open), chartPaint);
       if (high != low) {

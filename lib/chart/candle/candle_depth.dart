@@ -91,24 +91,24 @@ class DepthChartPainter extends CustomPainter {
       this.mSellPathColor) {
     mBuyLinePaint ??= Paint()
       ..isAntiAlias = true
-      ..color = ChartColors.depthBuyColor
+      ..color = CandleColors.depthBuyColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
     mSellLinePaint ??= Paint()
       ..isAntiAlias = true
-      ..color = ChartColors.depthSellColor
+      ..color = CandleColors.depthSellColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
     mBuyPathPaint ??= Paint()
       ..isAntiAlias = true
       ..color = mBuyPathColor == null
-          ? ChartColors.depthBuyColor.withOpacity(0.2)
+          ? CandleColors.depthBuyColor.withOpacity(0.2)
           : mBuyPathColor;
     mSellPathPaint ??= Paint()
       ..isAntiAlias = true
       ..color = mSellPathColor == null
-          ? ChartColors.depthSellColor.withOpacity(0.2)
+          ? CandleColors.depthSellColor.withOpacity(0.2)
           : mSellPathColor;
     mBuyPath ??= Path();
     mSellPath ??= Path();
@@ -294,10 +294,10 @@ class DepthChartPainter extends CustomPainter {
 
   Paint selectPaint = Paint()
     ..isAntiAlias = true
-    ..color = ChartColors.selectFillColor;
+    ..color = CandleColors.selectFillColor;
   Paint selectBorderPaint = Paint()
     ..isAntiAlias = true
-    ..color = ChartColors.selectBorderColor
+    ..color = CandleColors.selectBorderColor
     ..style = PaintingStyle.stroke
     ..strokeWidth = 0.5;
 

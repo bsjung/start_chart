@@ -139,7 +139,7 @@ class ChartPainter extends BaseChartPainter {
 
   @override
   void drawRightText(canvas) {
-    var textStyle = getTextStyle(ChartColors.defaultTextColor);
+    var textStyle = getTextStyle(CandleColors.defaultTextColor);
     mMainRenderer?.drawRightText(canvas, textStyle, mGridRows);
     mVolRenderer?.drawRightText(canvas, textStyle, mGridRows);
     mSecondaryRenderer?.drawRightText(canvas, textStyle, mGridRows);
@@ -177,12 +177,12 @@ class ChartPainter extends BaseChartPainter {
   Paint selectPointPaint = Paint()
     ..isAntiAlias = true
     ..strokeWidth = 0.5
-    ..color = ChartColors.selectFillColor;
+    ..color = CandleColors.selectFillColor;
   Paint selectorBorderPaint = Paint()
     ..isAntiAlias = true
     ..strokeWidth = 0.5
     ..style = PaintingStyle.stroke
-    ..color = ChartColors.selectBorderColor;
+    ..color = CandleColors.selectBorderColor;
 
   @override
   void drawCrossLineText(Canvas canvas, Size size) {
@@ -320,7 +320,7 @@ class ChartPainter extends BaseChartPainter {
     canvas.drawCircle(Offset(x, y), 2.0, paintX);
   }
 
-  TextPainter getTextPainter(text, [color = ChartColors.defaultTextColor]) {
+  TextPainter getTextPainter(text, [color = CandleColors.defaultTextColor]) {
     TextSpan span = TextSpan(text: "$text", style: getTextStyle(color));
     TextPainter tp = TextPainter(text: span, textDirection: TextDirection.ltr);
     tp.layout();

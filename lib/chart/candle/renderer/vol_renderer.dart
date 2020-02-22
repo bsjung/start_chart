@@ -30,18 +30,18 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
           Rect.fromLTRB(curX - r, top, curX + r, bottom),
           chartPaint
             ..color = curPoint.close > curPoint.open
-                ? ChartColors.upColor
-                : ChartColors.dnColor);
+                ? CandleColors.upColor
+                : CandleColors.dnColor);
     }
 
     if (lastPoint.MA5Volume != 0) {
       drawLine(lastPoint.MA5Volume, curPoint.MA5Volume, canvas, lastX, curX,
-          ChartColors.ma5Color);
+          CandleColors.ma5Color);
     }
 
     if (lastPoint.MA10Volume != 0) {
       drawLine(lastPoint.MA10Volume, curPoint.MA10Volume, canvas, lastX, curX,
-          ChartColors.ma10Color);
+          CandleColors.ma10Color);
     }
   }
 
@@ -54,15 +54,15 @@ class VolRenderer extends BaseChartRenderer<VolumeEntity> {
       children: [
         TextSpan(
             text: "VOL:${NumberUtil.format(data.vol)}    ",
-            style: getTextStyle(ChartColors.volColor)),
+            style: getTextStyle(CandleColors.volColor)),
         if (NumberUtil.checkNotNullOrZero(data.MA5Volume))
           TextSpan(
               text: "MA5:${NumberUtil.format(data.MA5Volume)}    ",
-              style: getTextStyle(ChartColors.ma5Color)),
+              style: getTextStyle(CandleColors.ma5Color)),
         if (NumberUtil.checkNotNullOrZero(data.MA10Volume))
           TextSpan(
               text: "MA10:${NumberUtil.format(data.MA10Volume)}    ",
-              style: getTextStyle(ChartColors.ma10Color)),
+              style: getTextStyle(CandleColors.ma10Color)),
       ],
     );
     TextPainter tp = TextPainter(text: span, textDirection: TextDirection.ltr);

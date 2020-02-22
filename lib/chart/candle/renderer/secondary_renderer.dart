@@ -29,19 +29,19 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
         break;
       case SecondaryState.KDJ:
         drawLine(
-            lastPoint.k, curPoint.k, canvas, lastX, curX, ChartColors.kColor);
+            lastPoint.k, curPoint.k, canvas, lastX, curX, CandleColors.kColor);
         drawLine(
-            lastPoint.d, curPoint.d, canvas, lastX, curX, ChartColors.dColor);
+            lastPoint.d, curPoint.d, canvas, lastX, curX, CandleColors.dColor);
         drawLine(
-            lastPoint.j, curPoint.j, canvas, lastX, curX, ChartColors.jColor);
+            lastPoint.j, curPoint.j, canvas, lastX, curX, CandleColors.jColor);
         break;
       case SecondaryState.RSI:
         drawLine(lastPoint.rsi, curPoint.rsi, canvas, lastX, curX,
-            ChartColors.rsiColor);
+            CandleColors.rsiColor);
         break;
       case SecondaryState.WR:
         drawLine(
-            lastPoint.r, curPoint.r, canvas, lastX, curX, ChartColors.rsiColor);
+            lastPoint.r, curPoint.r, canvas, lastX, curX, CandleColors.rsiColor);
         break;
       default:
         break;
@@ -55,18 +55,18 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
     double zeroy = getY(0);
     if (curPoint.macd > 0) {
       canvas.drawRect(Rect.fromLTRB(curX - r, macdY, curX + r, zeroy),
-          chartPaint..color = ChartColors.upColor);
+          chartPaint..color = CandleColors.upColor);
     } else {
       canvas.drawRect(Rect.fromLTRB(curX - r, zeroy, curX + r, macdY),
-          chartPaint..color = ChartColors.dnColor);
+          chartPaint..color = CandleColors.dnColor);
     }
     if (lastPoint.dif != 0) {
       drawLine(lastPoint.dif, curPoint.dif, canvas, lastX, curX,
-          ChartColors.difColor);
+          CandleColors.difColor);
     }
     if (lastPoint.dea != 0) {
       drawLine(lastPoint.dea, curPoint.dea, canvas, lastX, curX,
-          ChartColors.deaColor);
+          CandleColors.deaColor);
     }
   }
 
@@ -78,52 +78,52 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
         children = [
           TextSpan(
               text: "MACD(12,26,9)    ",
-              style: getTextStyle(ChartColors.defaultTextColor)),
+              style: getTextStyle(CandleColors.defaultTextColor)),
           if (data.macd != 0)
             TextSpan(
                 text: "MACD:${format(data.macd)}    ",
-                style: getTextStyle(ChartColors.macdColor)),
+                style: getTextStyle(CandleColors.macdColor)),
           if (data.dif != 0)
             TextSpan(
                 text: "DIF:${format(data.dif)}    ",
-                style: getTextStyle(ChartColors.difColor)),
+                style: getTextStyle(CandleColors.difColor)),
           if (data.dea != 0)
             TextSpan(
                 text: "DEA:${format(data.dea)}    ",
-                style: getTextStyle(ChartColors.deaColor)),
+                style: getTextStyle(CandleColors.deaColor)),
         ];
         break;
       case SecondaryState.KDJ:
         children = [
           TextSpan(
               text: "KDJ(14,1,3)    ",
-              style: getTextStyle(ChartColors.defaultTextColor)),
+              style: getTextStyle(CandleColors.defaultTextColor)),
           if (data.macd != 0)
             TextSpan(
                 text: "K:${format(data.k)}    ",
-                style: getTextStyle(ChartColors.kColor)),
+                style: getTextStyle(CandleColors.kColor)),
           if (data.dif != 0)
             TextSpan(
                 text: "D:${format(data.d)}    ",
-                style: getTextStyle(ChartColors.dColor)),
+                style: getTextStyle(CandleColors.dColor)),
           if (data.dea != 0)
             TextSpan(
                 text: "J:${format(data.j)}    ",
-                style: getTextStyle(ChartColors.jColor)),
+                style: getTextStyle(CandleColors.jColor)),
         ];
         break;
       case SecondaryState.RSI:
         children = [
           TextSpan(
               text: "RSI(14):${format(data.rsi)}    ",
-              style: getTextStyle(ChartColors.rsiColor)),
+              style: getTextStyle(CandleColors.rsiColor)),
         ];
         break;
       case SecondaryState.WR:
         children = [
           TextSpan(
               text: "WR(14):${format(data.r)}    ",
-              style: getTextStyle(ChartColors.rsiColor)),
+              style: getTextStyle(CandleColors.rsiColor)),
         ];
         break;
       default:
