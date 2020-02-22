@@ -5,6 +5,7 @@ import '../../utils/number_util.dart';
 import '../../utils/date_format_util.dart';
 import '../entity/candle_entity.dart';
 import '../entity/info_window_entity.dart';
+import '../style/candle_style.dart' show CandleStyle;
 
 import 'base_chart_painter.dart';
 import 'base_chart_renderer.dart';
@@ -301,7 +302,7 @@ class ChartPainter extends BaseChartPainter {
     KLineEntity point = getItem(index);
     Paint paintY = Paint()
       ..color = Colors.white12
-      ..strokeWidth = ChartStyle.vCrossWidth
+      ..strokeWidth = CandleStyle.vCrossWidth
       ..isAntiAlias = true;
     double x = getX(index);
     double y = getMainY(point.close);
@@ -311,7 +312,7 @@ class ChartPainter extends BaseChartPainter {
 
     Paint paintX = Paint()
       ..color = Colors.white
-      ..strokeWidth = ChartStyle.hCrossWidth
+      ..strokeWidth = CandleStyle.hCrossWidth
       ..isAntiAlias = true;
     // k line graph horizontal line
     canvas.drawLine(Offset(-mTranslateX, y),

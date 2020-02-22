@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../entity/ohlc_entity.dart';
 import '../candle_widget.dart' show MainState;
+import '../style/candle_style.dart' show CandleStyle;
+
 import 'base_chart_renderer.dart';
 
 class MainRenderer extends BaseChartRenderer<OHLCEntity> {
-  double mCandleWidth = ChartStyle.candleWidth;
-  double mCandleLineWidth = ChartStyle.candleLineWidth;
+  double mCandleWidth = CandleStyle.candleWidth;
+  double mCandleLineWidth = CandleStyle.candleLineWidth;
   MainState state;
   bool isLine;
   //Drawn content area

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../../utils/number_util.dart';
 import '../entity/volume_entity.dart';
-import './base_chart_renderer.dart';
+import '../style/candle_style.dart' show CandleStyle;
+
+import 'base_chart_renderer.dart';
 
 class VolRenderer extends BaseChartRenderer<VolumeEntity> {
-  double mVolWidth = ChartStyle.volWidth;
+  double mVolWidth = CandleStyle.volWidth;
 
   VolRenderer(Rect mainRect, double maxValue, double minValue,
       double topPadding, int fixedLength)

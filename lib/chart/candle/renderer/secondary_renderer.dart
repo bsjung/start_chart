@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../entity/macd_entity.dart';
 import '../candle_widget.dart' show SecondaryState;
+import '../style/candle_style.dart' show CandleStyle;
 
 import 'base_chart_renderer.dart';
 
 class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
-  double mMACDWidth = ChartStyle.macdWidth;
+  double mMACDWidth = CandleStyle.macdWidth;
   SecondaryState state;
 
   SecondaryRenderer(Rect mainRect, double maxValue, double minValue,

@@ -4,10 +4,10 @@ export 'package:flutter/material.dart'
 import 'package:flutter/material.dart'
     show Color, required, TextStyle, Rect, Canvas, Size, CustomPainter;
 
+import '../candle_widget.dart';
 import '../../utils/date_format_util.dart';
 import '../entity/candle_entity.dart';
-import '../candle_widget.dart';
-import '../candle_style.dart' show ChartStyle;
+import '../style/candle_style.dart' show CandleStyle;
 
 abstract class BaseChartPainter extends CustomPainter {
   static double maxScrollX = 0.0;
@@ -33,8 +33,8 @@ abstract class BaseChartPainter extends CustomPainter {
   double mMainHighMaxValue = double.minPositive,
       mMainLowMinValue = double.maxFinite;
   int mItemCount = 0;
-  double mDataLen = 0.0; //数据占屏幕总长度
-  double mPointWidth = ChartStyle.pointWidth;
+  double mDataLen = 0.0; 
+  double mPointWidth = CandleStyle.pointWidth;
   List<String> mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]; //格式化时间
 
   BaseChartPainter(

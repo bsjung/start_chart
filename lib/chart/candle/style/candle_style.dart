@@ -49,8 +49,8 @@ class ChartColors {
   }
 }
 
-class ChartStyle {
-  ChartStyle._();
+class CandleStyle {
+  CandleStyle._();
 
   //Point-to-point distance
   static const double pointWidth = 11.0;

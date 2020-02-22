@@ -5,7 +5,7 @@ import '../utils/date_format_util.dart';
 import './entity/info_window_entity.dart';
 import './entity/candle_entity.dart';
 import './renderer/candle_renderer.dart';
-import './candle_style.dart';
+import './style/candle_style.dart';
 
 enum MainState { MA, BOLL, NONE }
 enum SecondaryState { MACD, KDJ, RSI, WR, NONE }
@@ -17,7 +17,7 @@ class TimeFormat {
   ];
 }
 
-class KChartWidget extends StatefulWidget {
+class CandleWidget extends StatefulWidget {
   final List<KLineEntity> datas;
   final MainState mainState;
   final SecondaryState secondaryState;
@@ -35,7 +35,7 @@ class KChartWidget extends StatefulWidget {
   final Curve flingCurve;
   final Function(bool) isOnDrag;
 
-  KChartWidget(
+  CandleWidget(
     this.datas, {
     this.mainState = MainState.MA,
     this.secondaryState = SecondaryState.MACD,
@@ -53,10 +53,10 @@ class KChartWidget extends StatefulWidget {
   }) : assert(maDayList != null);
 
   @override
-  _KChartWidgetState createState() => _KChartWidgetState();
+  _CandleWidgetState createState() => _CandleWidgetState();
 }
 
-class _KChartWidgetState extends State<KChartWidget>
+class _CandleWidgetState extends State<CandleWidget>
     with TickerProviderStateMixin {
   double mScaleX = 1.0, mScrollX = 0.0, mSelectX = 0.0;
   StreamController<InfoWindowEntity> mInfoWindowStream;
