@@ -5,8 +5,7 @@ import 'rsi_entity.dart';
 import 'rw_entity.dart';
 import 'volume_entity.dart';
 
-class KEntity
-    with
+class KEntity with
         OHLCEntity,
         VolumeEntity,
         KDJEntity,

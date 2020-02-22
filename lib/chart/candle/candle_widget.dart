@@ -13,15 +13,7 @@ enum SecondaryState { MACD, KDJ, RSI, WR, NONE }
 class TimeFormat {
   static const List<String> YEAR_MONTH_DAY = [yyyy, '-', mm, '-', dd];
   static const List<String> YEAR_MONTH_DAY_WITH_HOUR = [
-    yyyy,
-    '-',
-    mm,
-    '-',
-    dd,
-    ' ',
-    HH,
-    ':',
-    nn
+    yyyy, '-', mm, '-', dd, ' ', HH, ':', nn
   ];
 }
 

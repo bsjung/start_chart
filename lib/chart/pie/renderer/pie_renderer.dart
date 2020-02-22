@@ -1,40 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import './renderer/pie_renderer.dart';
 
-class PieChart extends StatelessWidget {
-  PieChart({
-    @required this.percentage,
-    this.size = const Size(150, 150),
-  }) : assert(percentage != null);
-
-  final int percentage;
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return new LimitedBox(
-      child: new CustomPaint(
-        size: size,
-        painter: new PieChartPainter(
-           percentage: percentage,
-           textScaleFactor: 1.5,
-           textColor: Colors.blueGrey
-        ),
-      ), // CustomPaint
-    ); // LimitedBox
-  }
-}
-
-
-class _PieChartPainter extends CustomPainter {
+class PieChartPainter extends CustomPainter {
 
   int percentage = 0;
   double textScaleFactor = 1.0;
   Color textColor;
 
 
-  _PieChartPainter({this.percentage, this.textScaleFactor, this.textColor});
+  PieChartPainter({this.percentage, this.textScaleFactor, this.textColor});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -78,7 +52,7 @@ class _PieChartPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_PieChartPainter old) {
+  bool shouldRepaint(PieChartPainter old) {
     return old.percentage != percentage;
   }
 }
