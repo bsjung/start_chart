@@ -22,8 +22,8 @@ class CandleWidget extends StatefulWidget {
   final MainState mainState;
   final SecondaryState secondaryState;
   final bool isLine;
-  final bool isChinese;
   final List<String> timeFormat;
+
   // It will be called when the screen is scrolled to the end. 
   // It is really pulled to the right end of the screen.
   final Function(bool) onLoadMore;
@@ -40,7 +40,6 @@ class CandleWidget extends StatefulWidget {
     this.mainState = MainState.MA,
     this.secondaryState = SecondaryState.MACD,
     this.isLine,
-    this.isChinese = true,
     this.timeFormat = TimeFormat.YEAR_MONTH_DAY,
     this.onLoadMore,
     this.bgColor,
@@ -56,8 +55,7 @@ class CandleWidget extends StatefulWidget {
   _CandleWidgetState createState() => _CandleWidgetState();
 }
 
-class _CandleWidgetState extends State<CandleWidget>
-    with TickerProviderStateMixin {
+class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMixin {
   double mScaleX = 1.0, mScrollX = 0.0, mSelectX = 0.0;
   StreamController<InfoWindowEntity> mInfoWindowStream;
   double mWidth = 0;
@@ -219,17 +217,7 @@ class _CandleWidgetState extends State<CandleWidget>
 
   void notifyChanged() => setState(() {});
 
-  final List<String> infoNamesCN = [
-    "时间",
-    "开",
-    "高",
-    "低",
-    "收",
-    "涨跌额",
-    "涨跌幅",
-    "成交额"
-  ];
-  final List<String> infoNamesEN = [
+  final List<String> infoNames = [
     "Date",
     "Open",
     "High",
@@ -273,12 +261,11 @@ class _CandleWidgetState extends State<CandleWidget>
                     color: CandleColors.selectBorderColor, width: 0.5)),
             child: ListView.builder(
               padding: EdgeInsets.all(4),
-              itemCount: infoNamesCN.length,
+              itemCount: infoNames.length,
               itemExtent: 14.0,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return _buildItem(infos[index],
-                    widget.isChinese ? infoNamesCN[index] : infoNamesEN[index]);
+                return _buildItem(infos[index], infoNames[index]);
               },
             ),
           );
