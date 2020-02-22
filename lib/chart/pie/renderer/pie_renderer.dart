@@ -4,17 +4,23 @@ import 'package:flutter/material.dart';
 class PieChartPainter extends CustomPainter {
 
   int percentage;
-  double textScaleFactor;
   Color textColor;
+  double textScaleFactor;
+  double strokeWidth;
 
 
-  PieChartPainter({this.percentage, this.textScaleFactor, this.textColor});
+  PieChartPainter({
+                   this.percentage, 
+                   this.textColor,
+                   this.textScaleFactor, 
+                   this.strokeWidth,
+                  });
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
         ..color = Colors.orangeAccent
-        ..strokeWidth = 10.0
+        ..strokeWidth = this.strokeWidth
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round;
 
