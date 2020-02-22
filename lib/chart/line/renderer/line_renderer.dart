@@ -8,11 +8,19 @@ class LineChartPainter extends CustomPainter {
   double pointSize;
   Color lineColor;
   Color pointColor;
+  double textfontSize;
+
   int maxValueIndex;
   int minValueIndex;
-  double fontSize = 18.0;
 
-  LineChartPainter({this.points, this.pointSize, this.lineWidth, this.lineColor, this.pointColor});
+  LineChartPainter({
+                    this.points, 
+                    this.pointSize, 
+                    this.lineWidth, 
+                    this.lineColor, 
+                    this.pointColor,
+                    this.textfontSize,
+                   });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -58,7 +66,7 @@ class LineChartPainter extends CustomPainter {
     double maxY = points.reduce(max);
     double minY = points.reduce(min);
 
-    double bottomPadding = fontSize * 2;
+    double bottomPadding = textfontSize * 2;
     double topPadding = bottomPadding * 2;
     double h = size.height - topPadding;
 
@@ -100,7 +108,7 @@ class LineChartPainter extends CustomPainter {
   }
 
   void drawTextValue(Canvas canvas, String text, Offset pos, bool textUpward) {
-    TextSpan maxSpan = TextSpan(style: TextStyle(fontSize: fontSize, color: Colors.black, fontWeight: FontWeight.bold), text: text);
+    TextSpan maxSpan = TextSpan(style: TextStyle(fontSize: textfontSize, color: Colors.black, fontWeight: FontWeight.bold), text: text);
     TextPainter tp = TextPainter(text: maxSpan, textDirection: TextDirection.ltr);
     tp.layout();
 

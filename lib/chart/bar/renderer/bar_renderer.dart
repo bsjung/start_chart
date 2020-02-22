@@ -2,16 +2,24 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class BarChartPainter extends CustomPainter {
-  Color color;
-  double textScaleFactorXAxis = 1.0;
-  double textScaleFactorYAxis = 1.2;
 
   List<double> data = [];
   List<String> labels = [];
-  double bottomPadding = 0.0;
-  double leftPadding = 0.0;
+  Color color;
+  double bottomPadding;
+  double leftPadding;
+  double textScaleFactorXAxis;
+  double textScaleFactorYAxis;
 
-  BarChartPainter({this.data, this.labels, this.color = Colors.blue});
+  BarChartPainter({
+               this.data,
+               this.labels, 
+               this.color,
+               this.bottomPadding,
+               this.leftPadding,
+               this.textScaleFactorXAxis,
+               this.textScaleFactorYAxis,
+               });
 
   @override
   void paint(Canvas canvas, Size size) {

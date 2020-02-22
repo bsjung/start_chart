@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class PieChartPainter extends CustomPainter {
 
-  int percentage = 0;
-  double textScaleFactor = 1.0;
+  int percentage;
+  double textScaleFactor;
   Color textColor;
 
 
