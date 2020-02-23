@@ -74,15 +74,19 @@ Gallery
 ------
 
 Bar 
+
 ![bar](https://github.com/bsjung/start_chart/blob/master/start_bar.png)
 
 Candle
+
 ![candle](https://github.com/bsjung/start_chart/blob/master/start_candle.png)
 
 Line
+
 ![line](https://github.com/bsjung/start_chart/blob/master/start_line.png)
 
 Pie
+
 ![pie](https://github.com/bsjung/start_chart/blob/master/start_pie.png)
 
 
