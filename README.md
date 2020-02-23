@@ -100,4 +100,6 @@ Links
 Credits
 -------
 
+MFW ( https://github.com/OpenFlutter/k_chart ).
+
 Copyright (c) 2020 Benjamin Jung <bsjung@gmail.com>.
