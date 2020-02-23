@@ -9,7 +9,7 @@ import '../../utils/date_format_util.dart';
 import '../entity/candle_entity.dart';
 import '../style/candle_style.dart' show CandleStyle;
 
-abstract class BaseChartPainter extends CustomPainter {
+abstract class BaseCandlePainter extends CustomPainter {
   static double maxScrollX = 0.0;
   List<KLineEntity> datas;
   MainState mainState = MainState.MA;
@@ -37,7 +37,7 @@ abstract class BaseChartPainter extends CustomPainter {
   double mPointWidth = CandleStyle.pointWidth;
   List<String> mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]; //格式化时间
 
-  BaseChartPainter(
+  BaseCandlePainter(
       {@required this.datas,
       @required this.scaleX,
       @required this.scrollX,
@@ -299,7 +299,7 @@ abstract class BaseChartPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(BaseChartPainter oldDelegate) {
+  bool shouldRepaint(BaseCandlePainter oldDelegate) {
     return true;
 //    return oldDelegate.datas != datas ||
 //        oldDelegate.datas?.length != datas?.length ||

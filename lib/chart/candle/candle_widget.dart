@@ -102,7 +102,7 @@ class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMix
       onHorizontalDragUpdate: (details) {
         if (isScale || isLongPress) return;
         mScrollX = (details.primaryDelta / mScaleX + mScrollX)
-            .clamp(0.0, ChartPainter.maxScrollX);
+            .clamp(0.0, CandlePainter.maxScrollX);
         notifyChanged();
       },
       onHorizontalDragEnd: (DragEndDetails details) {
@@ -144,7 +144,7 @@ class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMix
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            painter: ChartPainter(
+            painter: CandlePainter(
                 datas: widget.datas,
                 scaleX: mScaleX,
                 scrollX: mScrollX,
@@ -196,8 +196,8 @@ class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMix
           widget.onLoadMore(true);
         }
         _stopAnimation();
-      } else if (mScrollX >= ChartPainter.maxScrollX) {
-        mScrollX = ChartPainter.maxScrollX;
+      } else if (mScrollX >= CandlePainter.maxScrollX) {
+        mScrollX = CandlePainter.maxScrollX;
         if (widget.onLoadMore != null) {
           widget.onLoadMore(false);
         }

@@ -7,7 +7,7 @@ import '../style/candle_style.dart' show CandleStyle;
 
 import 'base_chart_renderer.dart';
 
-class VolRenderer extends BaseChartRenderer<VolumeEntity> {
+class VolRenderer extends BaseCandleRenderer<VolumeEntity> {
   double mVolWidth = CandleStyle.volWidth;
 
   VolRenderer(Rect mainRect, double maxValue, double minValue,

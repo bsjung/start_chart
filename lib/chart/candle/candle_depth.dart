@@ -1,23 +1,24 @@
 import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import './entity/depth_entity.dart';
 import './style/candle_style.dart';
 
-class DepthChart extends StatefulWidget {
+class DepthCandle extends StatefulWidget {
   final List<DepthEntity> bids, asks;
   final int fixedLength;
   final Color buyPathColor;
   final Color sellPathColor;
 
-  DepthChart(this.bids, this.asks,
+  DepthCandle(this.bids, this.asks,
       {this.fixedLength = 2, this.buyPathColor, this.sellPathColor});
 
   @override
-  _DepthChartState createState() => _DepthChartState();
+  _DepthCandleState createState() => _DepthCandleState();
 }
 
-class _DepthChartState extends State<DepthChart> {
+class _DepthCandleState extends State<DepthCandle> {
   Offset pressOffset;
   bool isLongPress = false;
 
@@ -42,7 +43,7 @@ class _DepthChartState extends State<DepthChart> {
       },
       child: CustomPaint(
         size: Size(double.infinity, double.infinity),
-        painter: DepthChartPainter(
+        painter: DepthCandlePainter(
             widget.bids,
             widget.asks,
             pressOffset,
@@ -55,7 +56,7 @@ class _DepthChartState extends State<DepthChart> {
   }
 }
 
-class DepthChartPainter extends CustomPainter {
+class DepthCandlePainter extends CustomPainter {
   //Buy / sell
   List<DepthEntity> mBuyData, mSellData;
   Offset pressOffset;
@@ -81,7 +82,7 @@ class DepthChartPainter extends CustomPainter {
   //Buy and sell line/path border drawing brushes
   Paint mBuyLinePaint, mSellLinePaint, mBuyPathPaint, mSellPathPaint;
 
-  DepthChartPainter(
+  DepthCandlePainter(
       this.mBuyData,
       this.mSellData,
       this.pressOffset,
@@ -400,7 +401,7 @@ class DepthChartPainter extends CustomPainter {
       mDrawHeight - (mDrawHeight) * volume / mMaxVolume;
 
   @override
-  bool shouldRepaint(DepthChartPainter oldDelegate) {
+  bool shouldRepaint(DepthCandlePainter oldDelegate) {
 //    return oldDelegate.mBuyData != mBuyData ||
 //        oldDelegate.mSellData != mSellData ||
 //        oldDelegate.isLongPress != isLongPress ||

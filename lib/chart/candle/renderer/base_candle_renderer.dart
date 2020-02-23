@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 export '../style/candle_style.dart';
 
-abstract class BaseChartRenderer<T> {
+abstract class BaseCandleRenderer<T> {
   double maxValue, minValue;
   double scaleY;
   double topPadding;
@@ -18,7 +18,7 @@ abstract class BaseChartRenderer<T> {
     ..strokeWidth = 0.5
     ..color = Color(0xff4c5c74);
 
-  BaseChartRenderer(
+  BaseCandleRenderer(
       {@required this.chartRect,
       @required this.maxValue,
       @required this.minValue,
