@@ -7,8 +7,8 @@ import '../entity/candle_entity.dart';
 import '../entity/info_window_entity.dart';
 import '../style/candle_style.dart' show CandleStyle;
 
-import 'base_chart_painter.dart';
-import 'base_chart_renderer.dart';
+import 'base_candle_painter.dart';
+import 'base_candle_renderer.dart';
 import 'main_renderer.dart';
 import 'secondary_renderer.dart';
 import 'vol_renderer.dart';

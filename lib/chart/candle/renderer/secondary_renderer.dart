@@ -5,7 +5,7 @@ import '../entity/macd_entity.dart';
 import '../candle_widget.dart' show SecondaryState;
 import '../style/candle_style.dart' show CandleStyle;
 
-import 'base_chart_renderer.dart';
+import 'base_candle_renderer.dart';
 
 class SecondaryRenderer extends BaseCandleRenderer<MACDEntity> {
   double mMACDWidth = CandleStyle.macdWidth;

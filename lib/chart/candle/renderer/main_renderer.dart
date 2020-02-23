@@ -4,7 +4,7 @@ import '../entity/ohlc_entity.dart';
 import '../candle_widget.dart' show MainState;
 import '../style/candle_style.dart' show CandleStyle;
 
-import 'base_chart_renderer.dart';
+import 'base_candle_renderer.dart';
 
 class MainRenderer extends BaseCandleRenderer<OHLCEntity> {
   double mCandleWidth = CandleStyle.candleWidth;
