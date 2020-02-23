@@ -1,8 +1,8 @@
 import 'candle_entity.dart';
 
 class InfoWindowEntity {
-  KLineEntity kLineEntity;
+  CandleEntity candleEntity;
   bool isLeft = false;
 
-  InfoWindowEntity(this.kLineEntity, this.isLeft);
+  InfoWindowEntity(this.candleEntity, this.isLeft);
 }

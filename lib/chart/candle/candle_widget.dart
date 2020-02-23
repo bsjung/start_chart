@@ -18,7 +18,7 @@ class TimeFormat {
 }
 
 class CandleWidget extends StatefulWidget {
-  final List<LineEntity> datas;
+  final List<CandleEntity> datas;
   final MainState mainState;
   final SecondaryState secondaryState;
   final bool isLine;
@@ -236,8 +236,8 @@ class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMix
           if (!isLongPress ||
               widget.isLine == true ||
               !snapshot.hasData ||
-              snapshot.data.kLineEntity == null) return Container();
-          LineEntity entity = snapshot.data.kLineEntity;
+              snapshot.data.kCandleEntity == null) return Container();
+          CandleEntity entity = snapshot.data.kCandleEntity;
           double upDown = entity.change ?? entity.close - entity.open;
           double upDownPercent = entity.ratio ?? (upDown / entity.open) * 100;
           infos = [

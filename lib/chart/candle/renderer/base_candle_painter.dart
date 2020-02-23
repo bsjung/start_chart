@@ -11,7 +11,7 @@ import '../style/candle_style.dart' show CandleStyle;
 
 abstract class BaseCandlePainter extends CustomPainter {
   static double maxScrollX = 0.0;
-  List<LineEntity> datas;
+  List<CandleEntity> datas;
   MainState mainState = MainState.MA;
   SecondaryState secondaryState = SecondaryState.MACD;
   double scaleX = 1.0, scrollX = 0.0, selectX;
@@ -110,7 +110,7 @@ abstract class BaseCandlePainter extends CustomPainter {
   void drawDate(Canvas canvas, Size size);
 
   //Draw text
-  void drawText(Canvas canvas, LineEntity data, double x);
+  void drawText(Canvas canvas, CandleEntity data, double x);
 
   //Draw maximum and minimum
   void drawMaxAndMin(Canvas canvas);
@@ -147,7 +147,7 @@ abstract class BaseCandlePainter extends CustomPainter {
     }
   }
 
-  void getMainMaxMinValue(LineEntity item, int i) {
+  void getMainMaxMinValue(CandleEntity item, int i) {
     if (isLine == true) {
       mMainMaxValue = max(mMainMaxValue, item.close);
       mMainMinValue = min(mMainMinValue, item.close);
@@ -193,14 +193,14 @@ abstract class BaseCandlePainter extends CustomPainter {
     return result;
   }
 
-  void getVolMaxMinValue(LineEntity item) {
+  void getVolMaxMinValue(CandleEntity item) {
     mVolMaxValue = max(mVolMaxValue,
         max(item.vol, max(item.MA5Volume ?? 0, item.MA10Volume ?? 0)));
     mVolMinValue = min(mVolMinValue,
         min(item.vol, min(item.MA5Volume ?? 0, item.MA10Volume ?? 0)));
   }
 
-  void getSecondaryMaxMinValue(LineEntity item) {
+  void getSecondaryMaxMinValue(CandleEntity item) {
     if (secondaryState == SecondaryState.MACD) {
       mSecondaryMaxValue =
           max(mSecondaryMaxValue, max(item.macd, max(item.dif, item.dea)));

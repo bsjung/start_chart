@@ -1,6 +1,6 @@
 import 'entity.dart';
 
-class LineEntity extends Entity {
+class CandleEntity extends Entity {
   double open;
   double high;
   double low;
@@ -11,7 +11,7 @@ class LineEntity extends Entity {
   double ratio;
   int time;
 
-  LineEntity.fromCustom({
+  CandleEntity.fromCustom({
     this.amount,
     this.open,
     this.close,
@@ -23,7 +23,7 @@ class LineEntity extends Entity {
     this.vol,
   });
 
-  LineEntity.fromJson(Map<String, dynamic> json) {
+  CandleEntity.fromJson(Map<String, dynamic> json) {
     open = (json['open'] as num)?.toDouble();
     high = (json['high'] as num)?.toDouble();
     low = (json['low'] as num)?.toDouble();
