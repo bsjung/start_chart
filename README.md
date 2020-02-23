@@ -10,6 +10,9 @@ Thus, I've made charting packages supporting web framework and candle charts.
 
 ![demo](https://github.com/bsjung/start_chart/blob/master/start_chart.png)
 
+See the [start examples](https://github.com/bsjung/start_examples) for supported chart examples.
+
+
 Example usage
 -------------
 
@@ -93,8 +96,8 @@ Pie
 Links
 -----
 
-* [Google charts] (https://github.com/google/charts).
-* [K Charts] (https://github.com/OpenFlutter/k_chart).
+* [Google charts] ( https://github.com/google/charts ).
+* [K Charts] ( https://github.com/OpenFlutter/k_chart ).
 
 
 Credits
