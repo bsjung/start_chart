@@ -11,14 +11,14 @@ import '../style/candle_style.dart' show CandleStyle;
 
 abstract class BaseCandlePainter extends CustomPainter {
   static double maxScrollX = 0.0;
-  List<KLineEntity> datas;
+  List<LineEntity> datas;
   MainState mainState = MainState.MA;
   SecondaryState secondaryState = SecondaryState.MACD;
   double scaleX = 1.0, scrollX = 0.0, selectX;
   bool isLongPress = false;
   bool isLine = false;
 
-  //3 block size and position
+  // block size and position
   Rect mMainRect, mVolRect, mSecondaryRect;
   double mDisplayHeight, mWidth;
   double mTopPadding = 30.0, mBottomPadding = 20.0, mChildPadding = 12.0;
@@ -35,7 +35,7 @@ abstract class BaseCandlePainter extends CustomPainter {
   int mItemCount = 0;
   double mDataLen = 0.0; 
   double mPointWidth = CandleStyle.pointWidth;
-  List<String> mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]; //格式化时间
+  List<String> mFormats = [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]; 
 
   BaseCandlePainter(
       {@required this.datas,
@@ -52,7 +52,7 @@ abstract class BaseCandlePainter extends CustomPainter {
   }
 
   void initFormats() {
-//    [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]
+    // [yyyy, '-', mm, '-', dd, ' ', HH, ':', nn]
     if (mItemCount < 2) return;
     int firstTime = datas.first?.time ?? 0;
     int secondTime = datas[1]?.time ?? 0;
@@ -110,7 +110,7 @@ abstract class BaseCandlePainter extends CustomPainter {
   void drawDate(Canvas canvas, Size size);
 
   //Draw text
-  void drawText(Canvas canvas, KLineEntity data, double x);
+  void drawText(Canvas canvas, LineEntity data, double x);
 
   //Draw maximum and minimum
   void drawMaxAndMin(Canvas canvas);
@@ -147,7 +147,7 @@ abstract class BaseCandlePainter extends CustomPainter {
     }
   }
 
-  void getMainMaxMinValue(KLineEntity item, int i) {
+  void getMainMaxMinValue(LineEntity item, int i) {
     if (isLine == true) {
       mMainMaxValue = max(mMainMaxValue, item.close);
       mMainMinValue = min(mMainMinValue, item.close);
@@ -193,14 +193,14 @@ abstract class BaseCandlePainter extends CustomPainter {
     return result;
   }
 
-  void getVolMaxMinValue(KLineEntity item) {
+  void getVolMaxMinValue(LineEntity item) {
     mVolMaxValue = max(mVolMaxValue,
         max(item.vol, max(item.MA5Volume ?? 0, item.MA10Volume ?? 0)));
     mVolMinValue = min(mVolMinValue,
         min(item.vol, min(item.MA5Volume ?? 0, item.MA10Volume ?? 0)));
   }
 
-  void getSecondaryMaxMinValue(KLineEntity item) {
+  void getSecondaryMaxMinValue(LineEntity item) {
     if (secondaryState == SecondaryState.MACD) {
       mSecondaryMaxValue =
           max(mSecondaryMaxValue, max(item.macd, max(item.dif, item.dea)));

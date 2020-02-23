@@ -121,9 +121,9 @@ class CandlePainter extends BaseCandlePainter {
     canvas.translate(mTranslateX * scaleX, 0.0);
     canvas.scale(scaleX, 1.0);
     for (int i = mStartIndex; datas != null && i <= mStopIndex; i++) {
-      KLineEntity curPoint = datas[i];
+      LineEntity curPoint = datas[i];
       if (curPoint == null) continue;
-      KLineEntity lastPoint = i == 0 ? curPoint : datas[i - 1];
+      LineEntity lastPoint = i == 0 ? curPoint : datas[i - 1];
       double curX = getX(i);
       double lastX = i == 0 ? curX : getX(i - 1);
 
@@ -187,7 +187,7 @@ class CandlePainter extends BaseCandlePainter {
   @override
   void drawCrossLineText(Canvas canvas, Size size) {
     var index = calculateSelectedX(selectX);
-    KLineEntity point = getItem(index);
+    LineEntity point = getItem(index);
 
     TextPainter tp = getTextPainter(point.close, Colors.white);
     double textHeight = tp.height;
@@ -254,7 +254,7 @@ class CandlePainter extends BaseCandlePainter {
   }
 
   @override
-  void drawText(Canvas canvas, KLineEntity data, double x) {
+  void drawText(Canvas canvas, LineEntity data, double x) {
     //Long press to show the data in the press
     if (isLongPress) {
       var index = calculateSelectedX(selectX);
@@ -299,7 +299,7 @@ class CandlePainter extends BaseCandlePainter {
   ///Draw cross lines
   void drawCrossLine(Canvas canvas, Size size) {
     var index = calculateSelectedX(selectX);
-    KLineEntity point = getItem(index);
+    LineEntity point = getItem(index);
     Paint paintY = Paint()
       ..color = Colors.white12
       ..strokeWidth = CandleStyle.vCrossWidth
