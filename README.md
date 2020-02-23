@@ -8,7 +8,7 @@ Also, it lacks candle charts with technical indicators.
 
 Thus, I've made charting packages supporting web framework and candle charts.
 
-![demo](https://github.com/bsjung/start_chart/blob/master/start_chart.gif)
+![demo](https://github.com/bsjung/start_chart/blob/master/start_chart.png)
 
 Example usage
 -------------
