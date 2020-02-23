@@ -236,8 +236,8 @@ class _CandleWidgetState extends State<CandleWidget> with TickerProviderStateMix
           if (!isLongPress ||
               widget.isLine == true ||
               !snapshot.hasData ||
-              snapshot.data.kCandleEntity == null) return Container();
-          CandleEntity entity = snapshot.data.kCandleEntity;
+              snapshot.data.candleEntity == null) return Container();
+          CandleEntity entity = snapshot.data.candleEntity;
           double upDown = entity.change ?? entity.close - entity.open;
           double upDownPercent = entity.ratio ?? (upDown / entity.open) * 100;
           infos = [
