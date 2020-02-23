@@ -70,12 +70,20 @@ class ChartPage extends StatelessWidget {
 ```
 
 
-Status
+Gallery
 ------
 
-The API is very simple. The intend is to strictly follow Dart conventions, i.e.
-make the API as 'dartish' as possible while maintaining simplicity. We are
-open to any suggestions towards that goal.
+Bar 
+![bar](https://github.com/bsjung/start_chart/blob/master/start_line.png)
+
+Candle
+![candle](https://github.com/bsjung/start_chart/blob/master/start_candle.png)
+
+Line
+![line](https://github.com/bsjung/start_chart/blob/master/start_line.png)
+
+Pie
+![pie](https://github.com/bsjung/start_chart/blob/master/start_pie.png)
 
 
 Links
